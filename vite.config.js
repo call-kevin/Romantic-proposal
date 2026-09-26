@@ -1,17 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { cloudflare } from '@cloudflare/vite-plugin'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/',           // Use '/' for Cloudflare Pages (root domain)
-  build: {
-    outDir: 'dist',
-    sourcemap: false,
-    chunkSizeWarningLimit: 1000,
-  },
-  server: {
-    port: 5173,
-    open: true,
-  },
-});
+  plugins: [react(), cloudflare()],
+})
